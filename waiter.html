@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Waiter view</title><link rel="stylesheet" href="style.css"></head>
+<body><div class="blobs"><i></i><i></i><i></i></div>
+<main><section class="hero small"><h1 id="tbl">Order</h1><p id="when"></p></section>
+<section class="panel"><ul id="w" class="olist wl"></ul><p class="totalrow">Total <strong id="tot"></strong></p><p class="note">Tap a drink once it is served.</p></section></main>
+<script>
+const p=new URLSearchParams(location.search),rows=(p.get('i')||'').split('|').filter(Boolean).map(r=>r.split('~'));
+document.getElementById('tbl').textContent='Table '+(p.get('t')||'-');
+document.getElementById('when').textContent='Received '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+let t=0;const w=document.getElementById('w');
+if(!rows.length)w.innerHTML='<li>No order found in this link.</li>';
+rows.forEach(([n,q,pr])=>{t+=q*pr;const li=document.createElement('li');li.tabIndex=0;li.innerHTML=`<b class="big">${q}×</b><span class="nm"></span>`;li.querySelector('.nm').textContent=n;
+ const tg=()=>li.classList.toggle('done');li.onclick=tg;li.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}};w.append(li)});
+document.getElementById('tot').textContent=t+' MAD';
+</script></body></html>

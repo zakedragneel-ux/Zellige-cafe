@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zellige Café – Confirm order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,600&family=Outfit:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body><div class="blobs"><i></i><i></i><i></i></div>
+<header><span class="logo">Zellige Café</span><nav><a href="index.html">Hot drinks</a><a href="cold.html">Cold drinks</a></nav></header>
+<main><section class="hero small"><h1>Confirm your order</h1><p>Check your drinks, then show the code to your waiter.</p></section>
+<section id="empty" hidden class="panel center"><p>Your order is empty.</p><a class="next" href="index.html">Pick some drinks</a></section>
+<section id="order" class="two">
+ <div class="panel"><ul id="list" class="olist"></ul><p class="totalrow">Total <strong id="total"></strong></p>
+  <label class="tbl">Table number <input id="table" inputmode="numeric" maxlength="4" placeholder="e.g. 7"></label>
+  <div class="actions"><a class="btn ghost" href="index.html">Add more drinks</a><button id="clear" class="btn ghost" type="button">Clear order</button></div></div>
+ <div class="panel center confirm"><h2>Show this code to your waiter</h2><div id="qr" class="qr" aria-label="QR code of your order"></div><p id="mode" class="note"></p></div>
+</section></main><footer>Prices in Moroccan dirhams (MAD)</footer>
+<script src="cart.js"></script><script src="qrcode.js"></script><script src="order.js"></script></body></html>
